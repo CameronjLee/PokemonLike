@@ -38,8 +38,8 @@ public class BattleSceneController : MonoBehaviour
         specialDefenceStat = enemyPokemon.specialDefenceStat;
         speedStat = enemyPokemon.speedStat;
 
-        texture = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/Textures/Garchomp.png", typeof(Texture2D));
-        sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 200.0f);
+        texture = (Texture2D)AssetDatabase.LoadAssetAtPath($"Assets/Textures/{name}.png", typeof(Texture2D));
+        sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 60.0f);
         spriteRenderer.sprite = sprite;
     }
 }
