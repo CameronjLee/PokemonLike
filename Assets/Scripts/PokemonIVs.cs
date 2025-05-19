@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PokemonIVs : Pokemon
+public class PokemonIVs : MonoBehaviour
 {
     public int HealthIV;
     public int AttackIV;

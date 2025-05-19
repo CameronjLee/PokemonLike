@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class CurrentStatValues
 {
-    public Pokemon CurrentStats;
+    public Pokemon currentStats;
 
-    public CurrentStatValues(Pokemon baseStats)
+    public CurrentStatValues(PokemonBaseStats baseStats)
     {
-        Pokemon currentStats = baseStats;
+        currentStats = baseStats;
         //int ivs = 24;
         Dictionary<String, int> ivs = new Dictionary<String, int>()
         {
@@ -45,6 +45,5 @@ public class CurrentStatValues
         currentStats.SpecialDefenceStat = (int)Math.Floor(((int)Math.Floor((double)((2 * currentStats.SpecialDefenceStat + ivs["SpecialDefence"] + ((int)Math.Floor((double)evs["SpecialDefence"] / 4))) * currentStats.Level / 100)) + 5) * nature["SpecialDefence"]);
         currentStats.SpeedStat = (int)Math.Floor(((int)Math.Floor((double)((2 * currentStats.SpeedStat + ivs["Speed"] + ((int)Math.Floor((double)evs["Speed"] / 4))) * currentStats.Level / 100)) + 5) * nature["Speed"]);
 
-        CurrentStats = currentStats;
     }
 }

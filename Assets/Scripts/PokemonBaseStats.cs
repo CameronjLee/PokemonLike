@@ -13,27 +13,15 @@ public class PokemonBaseStats : Pokemon
         string jsonText = File.ReadAllText(path);
         Dictionary<string, Dictionary<string, string>> json = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(jsonText);
 
-        if (pokemonId == "Test")
-        {
-            HealthStat = 108;
-            AttackStat = 130;
-            DefenceStat = 95;
-            SpecialAttackStat = 80;
-            SpecialDefenceStat = 85;
-            SpeedStat = 102;
-            Level = 78;
-        }
-        else
-        {
-            Name = json[pokemonId.ToLower()]["name"];
-            HealthStat = int.Parse(json[pokemonId.ToLower()]["hp"]);
-            AttackStat = int.Parse(json[pokemonId.ToLower()]["attack"]);
-            DefenceStat = int.Parse(json[pokemonId.ToLower()]["defense"]);
-            SpecialAttackStat = int.Parse(json[pokemonId.ToLower()]["special-attack"]);
-            SpecialDefenceStat = int.Parse(json[pokemonId.ToLower()]["special-defense"]);
-            SpeedStat = int.Parse(json[pokemonId.ToLower()]["speed"]);
-            Level = 78;
-        }
+        
+        Name = json[pokemonId.ToLower()]["name"];
+        HealthStat = int.Parse(json[pokemonId.ToLower()]["hp"]);
+        AttackStat = int.Parse(json[pokemonId.ToLower()]["attack"]);
+        DefenceStat = int.Parse(json[pokemonId.ToLower()]["defense"]);
+        SpecialAttackStat = int.Parse(json[pokemonId.ToLower()]["special-attack"]);
+        SpecialDefenceStat = int.Parse(json[pokemonId.ToLower()]["special-defense"]);
+        SpeedStat = int.Parse(json[pokemonId.ToLower()]["speed"]);
+        Level = 78;
         
     }
 }

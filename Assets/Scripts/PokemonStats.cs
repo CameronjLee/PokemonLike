@@ -16,11 +16,11 @@ public class PokemonStats : MonoBehaviour
     public int specialDefenceStat;
     public int speedStat;
 
-    public PokemonStats(string Id)
+    public PokemonStats(string pokemonId, PokemonBaseStats baseStatistics)
     {
-        baseStats = new PokemonBaseStats(Id.ToString());
+        baseStats = baseStatistics;
         CurrentStatValues currentStats = new CurrentStatValues(baseStats);
-        stats = currentStats.CurrentStats;
+        stats = currentStats.currentStats;
 
         name = stats.Name;
         healthStat = stats.HealthStat;
