@@ -5,41 +5,33 @@ using UnityEditor;
 
 public class BattleSceneController : MonoBehaviour
 {
-    //public GameObject enemySpawn;
-    public PokemonStats enemyPokemon;
+    public GameObject enemySpawn;
+    public GameObject partySpawn;
+    //public GameObject player;
+
     private Sprite sprite;
     private Texture2D texture;
-    private SpriteRenderer spriteRenderer;
-
-    public string name;
-    public int healthStat;
-    public int attackStat;
-    public int defenceStat;
-    public int specialAttackStat;
-    public int specialDefenceStat;
-    public int speedStat;
+    private SpriteRenderer enemySpriteRenderer;
+    private SpriteRenderer partySpriteRenderer;
 
     void Awake()
     {
-        spriteRenderer = gameObject.AddComponent<SpriteRenderer>() as SpriteRenderer;
+        enemySpriteRenderer = enemySpawn.AddComponent<SpriteRenderer>();
+        partySpriteRenderer = partySpawn.AddComponent<SpriteRenderer>();
     }
 
     //now that I've worked out how this works I probably want to convert this to being called something else. Similar idea needs to be implemented for the other side
     void Start()
     {
-        enemyPokemon = new PokemonStats(((int)Random.Range(1.0f, 1025.0f)).ToString());
-        //enemyPokemon = gameObject.AddComponent<PokemonStats>();
+        Pokemon enemyPokemon = new PokemonController(((int)Random.Range(1.0f, 1025.0f)).ToString());
+        //Pokemon partyPokemon = player.GetComponent<PartyPokemon>().party[0];
 
-        name = enemyPokemon.name;
-        healthStat = enemyPokemon.healthStat;
-        attackStat = enemyPokemon.attackStat;
-        defenceStat = enemyPokemon.defenceStat;
-        specialAttackStat = enemyPokemon.specialAttackStat;
-        specialDefenceStat = enemyPokemon.specialDefenceStat;
-        speedStat = enemyPokemon.speedStat;
-
-        texture = (Texture2D)AssetDatabase.LoadAssetAtPath($"Assets/Textures/{name}.png", typeof(Texture2D));
+        texture = (Texture2D)Resources.Load($"Textures/{enemyPokemon.Name}", typeof(Texture2D));
         sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 60.0f);
-        spriteRenderer.sprite = sprite;
+        enemySpriteRenderer.sprite = sprite;
+
+        //texture = (Texture2D)Resources.Load($"Assets/Textures/{partyPokemon.name}.png", typeof(Texture2D));
+        //sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 60.0f);
+        //partySpriteRenderer.sprite = sprite;
     }
 }
